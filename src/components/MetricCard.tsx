@@ -19,6 +19,15 @@ export function MetricCard({ metric, latest, previous, selected, onClick }: Metr
   const previousValue = previous?.[metric.key] ?? null;
   const delta = currentValue !== null && previousValue !== null ? currentValue - previousValue : null;
 
+  function uvGuidance(uvi: number | null) {
+    if (uvi === null) return null;
+    if (uvi <= 2) return 'Low: normal outdoor activity is safe. Use sunscreen if you have sensitive skin.';
+    if (uvi <= 5) return 'Moderate: use sunscreen (SPF 30+), wear a hat and seek shade during midday.';
+    if (uvi <= 7) return 'High: sun protection required—reapply sunscreen every 2 hours and limit direct sun exposure.';
+    if (uvi <= 10) return 'Very High: avoid prolonged sun exposure; wear protective clothing and sunscreen.';
+    return 'Extreme: stay indoors if possible; use full sun protection (SPF 50+, hat, sunglasses).';
+  }
+
   return (
     <button
       className={`metric-card ${selected ? 'metric-card-selected' : ''}`}
@@ -38,6 +47,9 @@ export function MetricCard({ metric, latest, previous, selected, onClick }: Metr
       </div>
       <div className="metric-value">{formatValue(currentValue, metric.unit)}</div>
       <div className="metric-description">{metric.description}</div>
+      {metric.key === 'uvIndex' ? (
+        <div className="metric-guidance">{uvGuidance(currentValue)}</div>
+      ) : null}
     </button>
   );
 }

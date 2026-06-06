@@ -365,6 +365,49 @@ button {
   overflow: hidden;
 }
 
+.ground-uv-panel {
+  margin-bottom: 18px;
+}
+
+.ground-uv-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 14px;
+}
+
+.ground-uv-card {
+  border-radius: 22px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.065);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ground-uv-main {
+  background: linear-gradient(180deg, rgba(14, 165, 233, 0.18), rgba(255, 255, 255, 0.06));
+}
+
+.ground-uv-card span {
+  display: block;
+  color: #93c5fd;
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.ground-uv-card strong {
+  display: block;
+  margin: 14px 0 10px;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1;
+  letter-spacing: -0.06em;
+}
+
+.ground-uv-card small {
+  color: #94a3b8;
+  line-height: 1.5;
+}
+
 .table-wrap {
   overflow-x: auto;
 }
@@ -406,6 +449,10 @@ td {
 @media (max-width: 1180px) {
   .metric-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .ground-uv-grid {
+    grid-template-columns: 1fr;
   }
 
   .hero,

@@ -40,6 +40,18 @@ Use Chrome or Microsoft Edge for the Web Serial connection.
 4. Click `Connect`.
 5. Select the serial device from the browser popup.
 
+## Arduino sketch
+
+Use the example sketch in `arduino/TelemetrySender.ino` if you want a simple serial sender that matches this dashboard.
+
+It prints one CSV line per second in this shape:
+
+```txt
+timestamp,temperature,humidity,pressure,uvIntensity,uvIndex,altitude
+```
+
+The dashboard already understands that format, so any serial data you send in the same structure will show up in the chart and table.
+
 ## Expected telemetry format
 
 The dashboard accepts two formats.
@@ -66,6 +78,16 @@ Altitude is optional:
 
 ```txt
 temp=19.6,hum=43,pressure=858.6,uv=1.69,uvi=3.2,alt=1387.3
+
+### Arduino Nano label format
+
+The dashboard also understands the format you showed from the Nano:
+
+```txt
+Received: T:23.00C H:23.00% P:869.02hPa A:1276.62m UV:0.00, Ground UV: 0.1, Diff: -0.1
+```
+
+It will map `T`, `H`, `P`, `A`, and `UV` into the live telemetry cards and table. Extra labels like `Ground UV` and `Diff` are kept in the raw line and can be added later if you want them as separate fields.
 ```
 
 ## Test without hardware

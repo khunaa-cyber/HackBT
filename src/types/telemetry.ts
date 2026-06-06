@@ -4,6 +4,8 @@ export type MetricKey =
   | 'pressure'
   | 'uvIntensity'
   | 'uvIndex'
+  | 'groundUvIndex'
+  | 'uvDiff'
   | 'altitude';
 
 export type TelemetryPacket = {
@@ -15,6 +17,10 @@ export type TelemetryPacket = {
   pressure: number | null;
   uvIntensity: number | null;
   uvIndex: number | null;
+  uvVoltage: number | null;
+  groundUvIndex: number | null;
+  groundUvVoltage: number | null;
+  uvDiff: number | null;
   altitude: number | null;
   raw: string;
   valid: boolean;

@@ -90,6 +90,10 @@ export function ConnectionPanel(props: ConnectionPanelProps) {
         <div><span>Data loss</span><strong>{props.dataLossPercent}%</strong></div>
       </div>
 
+      {props.status === 'connected' && props.total === 0 && (
+        <div className="error-box">Connected. Waiting for the first telemetry packet from the Nano.</div>
+      )}
+
       <button className="danger-button" onClick={props.onClear} type="button">
         <Trash2 size={16} /> Clear session
       </button>

@@ -1,12 +1,14 @@
 import { Satellite } from 'lucide-react';
-import { useMemo, useState } from 'react';
+import { lazy, Suspense, useMemo, useState } from 'react';
 import { ConnectionPanel } from './components/ConnectionPanel';
-import { LiveChart } from './components/LiveChart';
+import { GroundUvPanel } from './components/GroundUvPanel';
 import { MetricCard } from './components/MetricCard';
 import { TelemetryTable } from './components/TelemetryTable';
 import { useSerialTelemetry } from './hooks/useSerialTelemetry';
 import { metrics } from './lib/metrics';
 import { MetricKey } from './types/telemetry';
+
+const LiveChart = lazy(() => import('./components/LiveChart').then((module) => ({ default: module.LiveChart })));
 
 export default function App() {
   const [selectedMetric, setSelectedMetric] = useState<MetricKey>('temperature');
@@ -54,7 +56,9 @@ export default function App() {
       </section>
 
       <section className="content-grid">
-        <LiveChart packets={telemetry.packets} metricKey={selectedMetric} />
+        <Suspense fallback={<section className="panel chart-panel"><div className="empty-state">Loading live chart...</div></section>}>
+          <LiveChart packets={telemetry.packets} metricKey={selectedMetric} />
+        </Suspense>
         <ConnectionPanel
           status={telemetry.status}
           packets={telemetry.packets}
@@ -71,6 +75,12 @@ export default function App() {
           onClear={telemetry.clearPackets}
         />
       </section>
+
+      <GroundUvPanel
+        canSatUvIndex={latest?.uvIndex ?? null}
+        groundUvIndex={latest?.groundUvIndex ?? null}
+        uvDiff={latest?.uvDiff ?? null}
+      />
 
       <TelemetryTable packets={telemetry.packets} />
     </main>

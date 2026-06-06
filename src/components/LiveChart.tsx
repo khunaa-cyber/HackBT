@@ -30,14 +30,14 @@ export function LiveChart({ packets, metricKey }: LiveChartProps) {
     <section className="panel chart-panel">
       <div className="section-header">
         <div>
-          <p className="eyebrow">Live graph</p>
+          <p className="eyebrow">Амьд график</p>
           <h2>{metric.label}</h2>
         </div>
-        <span className="unit-pill">{metric.unit || 'index'}</span>
+        <span className="unit-pill">{metric.unit || 'индекс'}</span>
       </div>
 
       {data.length === 0 ? (
-        <div className="empty-state">No valid telemetry yet. Connect serial or start simulation.</div>
+        <div className="empty-state">Одоогоор хүчинтэй телеметрий алга. Сериал холбож эсвэл симуляц эхлүүл.</div>
       ) : (
         <ResponsiveContainer width="100%" height={330}>
           <LineChart data={data} margin={{ top: 16, right: 20, left: 0, bottom: 8 }}>

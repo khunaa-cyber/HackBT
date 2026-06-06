@@ -15,10 +15,10 @@ export function TelemetryTable({ packets }: TelemetryTableProps) {
     <section className="panel table-panel">
       <div className="section-header">
         <div>
-          <p className="eyebrow">Latest data</p>
-          <h2>Telemetry table</h2>
+          <p className="eyebrow">Сүүлийн өгөгдөл</p>
+          <h2>Телеметрийн хүснэгт</h2>
         </div>
-        <span className="unit-pill">last 30 rows</span>
+        <span className="unit-pill">Сүүлийн 30 мөр</span>
       </div>
 
       <div className="table-wrap">
@@ -26,20 +26,20 @@ export function TelemetryTable({ packets }: TelemetryTableProps) {
           <thead>
             <tr>
               <th>ID</th>
-              <th>Time</th>
-              <th>Temp °C</th>
-              <th>Humidity %</th>
-              <th>Pressure hPa</th>
+              <th>Цаг</th>
+              <th>Темп °C</th>
+              <th>Чийг %</th>
+              <th>Даралт hPa</th>
               <th>UV mW/cm²</th>
-              <th>UVI</th>
-              <th>Alt m</th>
-              <th>Status</th>
+              <th>UV индекс</th>
+              <th>Өндөр m</th>
+              <th>Төлөв</th>
             </tr>
           </thead>
           <tbody>
             {rows.length === 0 ? (
               <tr>
-                <td colSpan={9} className="empty-row">No packets received yet.</td>
+                <td colSpan={9} className="empty-row">Одоогоор пакет хүлээгдээгүй.</td>
               </tr>
             ) : (
               rows.map((packet) => (
@@ -52,7 +52,7 @@ export function TelemetryTable({ packets }: TelemetryTableProps) {
                   <td>{cell(packet.uvIntensity)}</td>
                   <td>{cell(packet.uvIndex, 1)}</td>
                   <td>{cell(packet.altitude, 1)}</td>
-                  <td><span className={packet.valid ? 'valid-pill' : 'invalid-pill'}>{packet.valid ? 'valid' : 'invalid'}</span></td>
+                  <td><span className={packet.valid ? 'valid-pill' : 'invalid-pill'}>{packet.valid ? 'Хүчинтэй' : 'Хүчингүй'}</span></td>
                 </tr>
               ))
             )}

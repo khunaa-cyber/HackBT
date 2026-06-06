@@ -20,11 +20,11 @@ type ConnectionPanelProps = {
 
 function statusLabel(status: SerialStatus) {
   switch (status) {
-    case 'connected': return 'Connected';
-    case 'connecting': return 'Connecting';
-    case 'simulation': return 'Simulation';
-    case 'error': return 'Error';
-    default: return 'Disconnected';
+    case 'connected': return 'Холбогдсон';
+    case 'connecting': return 'Холбогдож байна';
+    case 'simulation': return 'Симуляци';
+    case 'error': return 'Алдаа';
+    default: return 'Холболт тасарсан';
   }
 }
 
@@ -43,15 +43,15 @@ export function ConnectionPanel(props: ConnectionPanelProps) {
     <aside className="panel side-panel">
       <div className="section-header">
         <div>
-          <p className="eyebrow">Ground station</p>
-          <h2>XBee Serial</h2>
+          <p className="eyebrow">Газрын станц</p>
+          <h2>XBee цуврал порт</h2>
         </div>
         <span className={`status-dot status-${props.status}`}>
           <Radio size={14} /> {statusLabel(props.status)}
         </span>
       </div>
 
-      <label className="field-label" htmlFor="baudRate">Baud rate</label>
+      <label className="field-label" htmlFor="baudRate">Хурд (baud)</label>
       <select
         id="baudRate"
         className="select"
@@ -68,13 +68,13 @@ export function ConnectionPanel(props: ConnectionPanelProps) {
 
       <div className="button-grid">
         <button className="primary-button" onClick={props.onConnect} type="button">
-          <PlugZap size={18} /> Connect
+          <PlugZap size={18} /> Холбох
         </button>
         <button className="secondary-button" onClick={props.onDisconnect} type="button">
-          Disconnect
+          Таслах
         </button>
         <button className="secondary-button" onClick={props.onSimulation} type="button">
-          Simulate
+          Симуляц
         </button>
         <button className="secondary-button" onClick={exportCsv} type="button" disabled={props.packets.length === 0}>
           <Download size={18} /> CSV
@@ -84,18 +84,18 @@ export function ConnectionPanel(props: ConnectionPanelProps) {
       {props.error && <div className="error-box">{props.error}</div>}
 
       <div className="stats-grid">
-        <div><span>Total packets</span><strong>{props.total}</strong></div>
-        <div><span>Valid packets</span><strong>{props.validCount}</strong></div>
-        <div><span>Invalid packets</span><strong>{props.invalidCount}</strong></div>
-        <div><span>Data loss</span><strong>{props.dataLossPercent}%</strong></div>
+        <div><span>Нийт пакет</span><strong>{props.total}</strong></div>
+        <div><span>Хүчинтэй пакет</span><strong>{props.validCount}</strong></div>
+        <div><span>Хүчин төгөлдөр бус пакет</span><strong>{props.invalidCount}</strong></div>
+        <div><span>Өгөгдөл алдагдал</span><strong>{props.dataLossPercent}%</strong></div>
       </div>
 
       {props.status === 'connected' && props.total === 0 && (
-        <div className="error-box">Connected. Waiting for the first telemetry packet from the Nano.</div>
+        <div className="error-box">Холбогдсон. Nano-оос анхны telemetry пакет ирэхийг хүлээж байна.</div>
       )}
 
       <button className="danger-button" onClick={props.onClear} type="button">
-        <Trash2 size={16} /> Clear session
+        <Trash2 size={16} /> Сессийг цэвэрлэх
       </button>
     </aside>
   );

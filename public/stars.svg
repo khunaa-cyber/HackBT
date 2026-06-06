@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <rect id="bg" width="1200" height="800" fill="#000" />
+    <radialGradient id="g1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="60%" stop-color="#ffffff" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blurSmall">
+      <feGaussianBlur stdDeviation="0.6"/>
+    </filter>
+  </defs>
+
+  <g id="stars">
+    <!-- Dense background speckles -->
+    <g fill="#ffffff" opacity="0.9">
+      <!-- many small dots -->
+      <circle cx="40" cy="30" r="0.9"/>
+      <circle cx="80" cy="170" r="0.7"/>
+      <circle cx="140" cy="60" r="0.6"/>
+      <circle cx="200" cy="210" r="0.5"/>
+      <circle cx="260" cy="30" r="0.6"/>
+      <circle cx="320" cy="130" r="0.7"/>
+      <circle cx="380" cy="90" r="0.5"/>
+      <circle cx="440" cy="250" r="0.8"/>
+      <circle cx="500" cy="60" r="0.6"/>
+      <circle cx="560" cy="190" r="0.7"/>
+      <circle cx="620" cy="35" r="0.5"/>
+      <circle cx="680" cy="150" r="0.6"/>
+      <circle cx="740" cy="95" r="0.5"/>
+      <circle cx="800" cy="220" r="0.7"/>
+      <circle cx="860" cy="48" r="0.6"/>
+      <circle cx="920" cy="170" r="0.8"/>
+      <circle cx="980" cy="85" r="0.6"/>
+      <circle cx="1040" cy="210" r="0.5"/>
+      <circle cx="1100" cy="40" r="0.7"/>
+      <circle cx="1160" cy="160" r="0.6"/>
+    </g>
+
+    <!-- Brighter stars with subtle cross glints -->
+    <g fill="#ffffff" opacity="0.95">
+      <g>
+        <circle cx="150" cy="400" r="3"/>
+        <circle cx="150" cy="400" r="10" fill="url(#g1)" opacity="0.12"/>
+      </g>
+      <g>
+        <circle cx="420" cy="520" r="3.6"/>
+        <circle cx="420" cy="520" r="14" fill="url(#g1)" opacity="0.12"/>
+      </g>
+      <g>
+        <circle cx="740" cy="360" r="4"/>
+        <circle cx="740" cy="360" r="16" fill="url(#g1)" opacity="0.12"/>
+      </g>
+      <g>
+        <circle cx="980" cy="520" r="3.2"/>
+        <circle cx="980" cy="520" r="12" fill="url(#g1)" opacity="0.12"/>
+      </g>
+      <g>
+        <circle cx="1060" cy="300" r="3.6"/>
+        <circle cx="1060" cy="300" r="14" fill="url(#g1)" opacity="0.12"/>
+      </g>
+    </g>
+
+    <!-- extra small speckles tiled -->
+    <g fill="#ffffff" opacity="0.7">
+      <!-- generated pattern-like dots -->
+      <circle cx="50" cy="600" r="0.6"/>
+      <circle cx="120" cy="680" r="0.6"/>
+      <circle cx="190" cy="560" r="0.6"/>
+      <circle cx="260" cy="740" r="0.6"/>
+      <circle cx="330" cy="640" r="0.6"/>
+      <circle cx="400" cy="700" r="0.6"/>
+      <circle cx="470" cy="610" r="0.6"/>
+      <circle cx="540" cy="690" r="0.6"/>
+      <circle cx="610" cy="580" r="0.6"/>
+      <circle cx="680" cy="740" r="0.6"/>
+      <circle cx="750" cy="660" r="0.6"/>
+      <circle cx="820" cy="720" r="0.6"/>
+      <circle cx="890" cy="600" r="0.6"/>
+      <circle cx="960" cy="680" r="0.6"/>
+      <circle cx="1030" cy="560" r="0.6"/>
+      <circle cx="1100" cy="740" r="0.6"/>
+    </g>
+  </g>
+
+  <!-- background rect -->
+  <rect width="1200" height="800" fill="#000" />
+  <use href="#stars" />
+</svg>

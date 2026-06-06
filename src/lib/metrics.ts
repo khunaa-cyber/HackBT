@@ -3,45 +3,45 @@ import { MetricConfig } from '../types/telemetry';
 export const metrics: MetricConfig[] = [
   {
     key: 'temperature',
-    label: 'Temperature',
-    shortLabel: 'Temp',
+    label: 'Температур',
+    shortLabel: 'Темп',
     unit: '°C',
-    description: 'BMP280 / DHT temperature reading'
+    description: 'BMP280 / DHT температурын уншлага'
   },
   {
     key: 'humidity',
-    label: 'Humidity',
-    shortLabel: 'Humidity',
+    label: 'Чийгшил',
+    shortLabel: 'Чийг',
     unit: '%',
-    description: 'DHT11 relative humidity'
+    description: 'DHT11 харьцан буй чийгшил'
   },
   {
     key: 'pressure',
-    label: 'Pressure',
-    shortLabel: 'Pressure',
+    label: 'Агаарын даралт',
+    shortLabel: 'Даралт',
     unit: 'hPa',
-    description: 'BMP280 atmospheric pressure'
+    description: 'BMP280 агаарын даралт'
   },
   {
     key: 'uvIntensity',
-    label: 'UV Intensity',
+    label: 'UV эрчим',
     shortLabel: 'UV',
     unit: 'mW/cm²',
-    description: 'GY-ML8511 UV intensity'
+    description: 'GY-ML8511 UV эрчим'
   },
   {
     key: 'uvIndex',
-    label: 'UV Index',
+    label: 'UV индекс',
     shortLabel: 'UVI',
     unit: '',
-    description: 'Calculated UV index'
+    description: 'Тоологдсон UV индекс'
   },
   {
     key: 'altitude',
-    label: 'Altitude',
-    shortLabel: 'Altitude',
+    label: 'Өндөр',
+    shortLabel: 'Өндөр',
     unit: 'm',
-    description: 'Estimated altitude from pressure'
+    description: 'Даралтаас тооцоолсон өндөр'
   }
 ];
 

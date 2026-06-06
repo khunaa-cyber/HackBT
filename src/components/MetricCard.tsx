@@ -21,11 +21,11 @@ export function MetricCard({ metric, latest, previous, selected, onClick }: Metr
 
   function uvGuidance(uvi: number | null) {
     if (uvi === null) return null;
-    if (uvi <= 2) return 'Low: normal outdoor activity is safe. Use sunscreen if you have sensitive skin.';
-    if (uvi <= 5) return 'Moderate: use sunscreen (SPF 30+), wear a hat and seek shade during midday.';
-    if (uvi <= 7) return 'High: sun protection required—reapply sunscreen every 2 hours and limit direct sun exposure.';
-    if (uvi <= 10) return 'Very High: avoid prolonged sun exposure; wear protective clothing and sunscreen.';
-    return 'Extreme: stay indoors if possible; use full sun protection (SPF 50+, hat, sunglasses).';
+    if (uvi <= 2) return 'Бага: гадаа хэвийн үйл ажиллагаа аюулгүй. Арьс эмзэг бол нарны тос хэрэглэ.';
+    if (uvi <= 5) return 'Дунд: нарнаас хамгаалах шаардлагатай — SPF30+ тос ашиглаж, малгай өмсөж, өдрийн оргилд сүүдрэнд бай.';
+    if (uvi <= 7) return 'Өндөр: нарнаас хамгаалах хэрэгтэй; нарны тосыг 2 цаг тутамд дахин түрхэж, шууд наранд удаан байхгүй.';
+    if (uvi <= 10) return 'Маш өндөр: наранд удаан байлгахгүй; хамгаалалтын хувцас болон нарны тос хэрэглэ.';
+    return 'Аюултай их: боломжтой бол дотор байж, бүрэн нарнаас хамгаалах (SPF50+, малгай, нарны шил) хэрэглэ.';
   }
 
   return (
@@ -42,7 +42,7 @@ export function MetricCard({ metric, latest, previous, selected, onClick }: Metr
             {Math.abs(delta).toFixed(2)}
           </span>
         ) : (
-          <span className="delta-flat">stable</span>
+          <span className="delta-flat">Тогтвортой</span>
         )}
       </div>
       <div className="metric-value">{formatValue(currentValue, metric.unit)}</div>

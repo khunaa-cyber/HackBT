@@ -15,10 +15,16 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  /* starry background image should be placed at public/stars.jpg */
   background:
     radial-gradient(circle at top left, rgba(14, 165, 233, 0.26), transparent 34rem),
     radial-gradient(circle at top right, rgba(59, 130, 246, 0.18), transparent 30rem),
-    linear-gradient(135deg, #08111f 0%, #111827 52%, #0f172a 100%);
+    linear-gradient(135deg, #08111f 0%, #111827 52%, #0f172a 100%),
+    url('/stars.svg');
+  background-repeat: no-repeat, no-repeat, no-repeat, repeat;
+  background-position: top left, top right, center, center;
+  background-size: cover, cover, cover, auto;
+  background-attachment: fixed;
 }
 
 button, select {

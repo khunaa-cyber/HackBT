@@ -28,17 +28,17 @@ export default function App() {
           <div className="brand-row">
             <span className="brand-icon"><Satellite size={22} /></span>
             <span>WE Mongolia CanSat 2026</span>
-          </div>
-          <h1>Live Weather Telemetry Dashboard</h1>
-          <p>
-            Real-time CanSat ground station interface for temperature, humidity, pressure,
-            UV intensity, UV index, and estimated altitude.
-          </p>
+            </div>
+            <h1>Амьд цагийн цаг агаарын телеметрийн самбар</h1>
+            <p>
+              Температур, чийгшил, даралт, UV эрчим, UV индекс болон тооцоологдсон өндөрийг харуулах
+              CanSat газрын станцын real-time интерфейс.
+            </p>
         </div>
         <div className="hero-card">
-          <span>Last received</span>
+          <span>Сүүлд ирсэн</span>
           <strong>{missionTime}</strong>
-          <small>{latest?.raw ?? 'Waiting for XBee telemetry...'}</small>
+          <small>{latest?.raw ?? 'XBee telemetry-г хүлээж байна...'}</small>
         </div>
       </header>
 
@@ -56,7 +56,7 @@ export default function App() {
       </section>
 
       <section className="content-grid">
-        <Suspense fallback={<section className="panel chart-panel"><div className="empty-state">Loading live chart...</div></section>}>
+        <Suspense fallback={<section className="panel chart-panel"><div className="empty-state">График ачааллаж байна...</div></section>}>
           <LiveChart packets={telemetry.packets} metricKey={selectedMetric} />
         </Suspense>
         <ConnectionPanel
